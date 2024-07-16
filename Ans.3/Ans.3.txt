@@ -1,0 +1,71 @@
+The grid-auto-rows and grid-auto-columns properties in CSS Grid Layout define the size of implicitly created rows and columns, respectively. These come into play when you have more items than explicitly defined rows or columns in your grid.
+
+grid-auto-rows - This property specifies the size of the rows that are implicitly created.
+
+Example: Suppose you have a grid container defined with a few explicit rows but then add more items than the defined rows.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 100px 100px;
+            grid-template-rows: 100px; /* Only one explicit row */
+            grid-auto-rows: 50px; /* Implicit rows will be 50px */
+            gap: 10px;
+        }
+        .item {
+            background-color: lightblue;
+            border: 1px solid blue;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div> <!-- This will be placed in an implicit row -->
+    </div>
+</body>
+</html>
+
+In this example, the third item will be placed in an implicitly created second row with a height of 50px.
+
+grid-auto-columns - This property specifies the size of the columns that are implicitly created.
+
+Example: Suppose you have a grid container defined with a few explicit columns but then add more items that require additional columns.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: 100px; /* Only one explicit column */
+            grid-template-rows: 100px 100px;
+            grid-auto-columns: 50px; /* Implicit columns will be 50px */
+            gap: 10px;
+        }
+        .item {
+            background-color: lightgreen;
+            border: 1px solid green;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item" style="grid-column: 2;">3</div> <!-- This will be placed in an implicit column -->
+    </div>
+</body>
+</html>
